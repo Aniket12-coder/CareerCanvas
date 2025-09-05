@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Modern UI</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Gradient Background */
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        /* Contact Box */
+        .contact-container {
+            display: flex;
+            width: 900px;
+            height: 520px;
+            background: rgba(255, 255, 255, 0.15); /* Glass effect */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .contact-container:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Left Section (Form) */
+        .left-section {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;  
+            justify-content: center;
+            color: #fff;
+        }
+        
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: #ddd;
+        }
+
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #ff7eb3, #ff758c);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            color: #e0e0e0;
+            margin: 5px 0;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff7eb3;
+            transform: scale(1.1);
+        }
+        
+        /* Right Section (Big Image) */
+        .right-section {
+            flex: 1;
+            background: url('https://notoxweb.com/wp-content/uploads/2024/02/Untitled_design__5_-removebg-preview.webp') no-repeat center/cover;
+            transition: transform 0.3s ease-in-out;
+            height: auto;
+            width: 150px;
+        }
+
+        .right-section:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+                height: auto;
+                width: 90%;
+            }
+            .right-section {
+                height: 300px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-container">
+        <!-- Left Section (Form) -->
+        <div class="left-section">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Contact Us</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Contact:</strong> carrercanvasofficial2025@gmail.com</p>
+                <p><strong>Based in:</strong> Saltlake, Kolkata</p>
+                
+            </div>
+        </div>
+        
+        <!-- Right Section (Big Image) -->
+        <div class="right-section"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .chat-container {
+            width: 400px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .chat-body {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .chat-footer {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+        }
+        .chat-footer button {
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .message {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .bot-message {
+            background: #e0e0e0;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">College Chatbot</div>
+        <div class="chat-body" id="chat-body"></div>
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Ask about colleges...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById("user-input").value.trim();
+            if (!userInput) return;
+
+            appendMessage(userInput, "user-message");
+            document.getElementById("user-input").value = "";
+
+            setTimeout(() => {
+                const botResponse = getBotResponse(userInput);
+                appendMessage(botResponse, "bot-message");
+            }, 1000);
+        }
+
+        function appendMessage(text, className) {
+            const chatBody = document.getElementById("chat-body");
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `message ${className}`;
+            messageDiv.textContent = text;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            input = input.toLowerCase().trim();
+
+            const responses = [
+                { pattern: /best college in kolkata/, response: "NIT Durgapur and Jadavpur University are top colleges in Kolkata." },
+                { pattern: /best college in mumbai/, response: "IIT Bombay and ICT Mumbai are top-ranked colleges in Mumbai." },
+                { pattern: /best college in delhi/, response: "IIT Delhi and DTU are among the best in Delhi." },
+                { pattern: /colleges in kolkata/, response: "Some top colleges in Kolkata are NIT Durgapur, Jadavpur University, and IEM." },
+                { pattern: /colleges in mumbai/, response: "Top colleges in Mumbai include IIT Bombay, VJTI, and SPIT." },
+                { pattern: /colleges in delhi/, response: "Delhi has great colleges like IIT Delhi, DTU, and IIIT Delhi." },
+                { pattern: /private colleges in kolkata/, response: "Brainware University and Techno India Saltlake are notable private colleges in Kolkata." },
+                { pattern: /private colleges in mumbai/, response: "SPIT and Xavier Institute of Engineering are well-known private institutions in Mumbai." },
+                { pattern: /private colleges in delhi/, response: "GGSIPU and IIIT Delhi are among the top private institutions in Delhi." },
+                { pattern: /affordable colleges in kolkata/, response: "Jadavpur University and Brainware University offer quality education at lower fees." },
+                { pattern: /affordable colleges in mumbai/, response: "ICT Mumbai and VJTI provide great education at reasonable costs." },
+                { pattern: /affordable colleges in delhi/, response: "IIT Delhi (with scholarships) and JMI are budget-friendly top institutions." },
+                { pattern: /best college for bca in kolkata/, response: "Brainware University and IEM offer excellent BCA programs in Kolkata." },
+                { pattern: /best college for bca in mumbai/, response: "Xavier Institute and IIT Bombay have great BCA programs in Mumbai." },
+                { pattern: /best college for bca in delhi/, response: "GGSIPU and DTU offer top-notch BCA courses in Delhi." },
+                { pattern: /best college for mba in kolkata/, response: "Jadavpur University and Brainware University have top MBA programs in Kolkata." },
+                { pattern: /best college for mba in mumbai/, response: "Mumbai’s top MBA colleges include IIT Bombay and ICT Mumbai." },
+                { pattern: /best college for mba in delhi/, response: "JMI and GGSIPU offer great MBA programs in Delhi." },
+                { pattern: /best engineering college in kolkata/, response: "NIT Durgapur and Jadavpur University are the best engineering choices in Kolkata." },
+                { pattern: /best engineering college in mumbai/, response: "IIT Bombay and VJTI are the top engineering institutions in Mumbai." },
+                { pattern: /best engineering college in delhi/, response: "IIT Delhi and DTU are the top-ranked engineering colleges in Delhi." }
+            ];
+
+            for (let i = 0; i < responses.length; i++) {
+                if (responses[i].pattern.test(input)) {
+                    return responses[i].response;
+                }
+            }
+
+            return "I can help you find the best colleges and courses! What city or field are you interested in?";
+        }
+    </script>
+</body>
+</html>

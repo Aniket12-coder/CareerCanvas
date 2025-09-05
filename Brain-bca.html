@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            background-image: url("bwu2.webp");
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px;
+            width: 80%;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .header:hover {
+            transform: scale(1.05);
+        }
+        .main {
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: rgb(40, 37, 33);
+            width: 60%;
+            height: auto;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            padding: relative;
+            top: 20px;
+        }
+        .main:hover {
+            transform: translateY(-10px);
+        }
+        .blink {
+            animation: blinker 1.5s linear infinite;
+            color: rgb(29, 27, 27);
+            font-family: sans-serif;
+        }
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><marquee direction="right" class="blink">Welcome to brainware university</marquee></h1>
+    </div><br>
+    <br>
+    <div class="main">
+        <p>Cutoff: No entrence require merit besed</p>
+        <p>Course level: UG Degree</p>
+        <p>Tuition fees: 4.73 Lakh</p>
+    </div>
+</body>
+</html>
